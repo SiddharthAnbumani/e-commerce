@@ -2,7 +2,7 @@ import React from 'react'
 
 const VendorLogin = () => {
   return (
-    <div>VendorLogin</div>
+    <h1 className='text-9xl9xl'>Hello</h1>
   )
 }
 

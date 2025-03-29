@@ -2,8 +2,9 @@ import React from 'react'
 
 const Landing = () => {
   return (
-    <div>Landing</div>
+    <div className='bg-cyan-50'>
+    </div>
   )
 }
 
-export default Landing
+export default Landing;

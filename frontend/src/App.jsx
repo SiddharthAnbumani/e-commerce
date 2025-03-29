@@ -6,10 +6,13 @@ import VendorLogin from "./pages/VendorLogin"
 import VendorSignUp from "./pages/VendorSignUp"
 import BuyerSignUp from "./pages/BuyerSignUp"
 import BuyerLogin from "./pages/BuyerLogin"
+import Navbar from "./components/Navbar"
+import './index.css'
 
 export default function App(){
   return (
     <BrowserRouter>
+    <Navbar/>
       <Routes>
         <Route path="/" element={<Landing/>} />
         <Route path="/home" element={<Home/>} />

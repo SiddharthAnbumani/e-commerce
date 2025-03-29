@@ -6,12 +6,20 @@ const VendorSchema = new Schema({
         type: String,
         required: true
     },
-    company: {
+    CompanyName: {
         type: String,
         required: true
     },
-    address: {
+    Address: {
         type: String,
+        required:true
+    },
+    Email: {
+        type: String,
+        required:true
+    },
+    Contact: {
+        type: Number,
         required:true
     },
     products: [
@@ -23,3 +31,7 @@ const VendorSchema = new Schema({
 })
 const Vendor = mongoose.model('Vendor', VendorSchema)
 module.exports = Vendor;
+
+
+
+

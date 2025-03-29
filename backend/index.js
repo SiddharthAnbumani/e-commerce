@@ -1,6 +1,7 @@
 const express = require('express')
 const app = express()
 const path = require('path')
+const cors = require('cors')
 
 const mongoose = require('mongoose')
 
@@ -13,6 +14,8 @@ mongoose.connect('mongodb://localhost:27017/e-commerce')
 })
 
 app.use(express.urlencoded({extended:true}))
+app.use(cors())
+app.use(express.json())
 
 app.set('view engine', 'ejs')
 app.set('views',path.join(__dirname,'views'))
@@ -21,28 +24,30 @@ app.get('/',(req,res)=>{
     res.render('index')
 })
 
-app.get('/buyer',(req,res)=>{
-    res.render('buyer')
-})
-
-app.post('/buyer',(req,res)=>{
-    res.send('buyer Created')
-})
-
-app.get('/seller',(req,res)=>{
-    res.render('seller')
-})
-
-app.post('/seller',(req,res)=>{
-    res.send('seller Created')
-})
-
-app.get('/product',(req,res)=>{
-    res.render('product')
-})
-
-app.post('/product',(req,res)=>{
-    res.send('Product Created')
+app.post('/api/vendor-registration', async (req,res)=>{
+    const data = await req.body;
+    await console.log('Received data:', data);
+    res.status(200).json({ message: 'Vendor registration successful' });
 })
 
 app.listen(3000, ()=>{console.log('ON PORT 3000')})
+
+// app.post('/buyer',(req,res)=>{
+//     res.send('buyer Created')
+// })
+
+// app.get('/seller',(req,res)=>{
+//     res.render('seller')
+// })
+
+// app.post('/seller',(req,res)=>{
+//     res.send('seller Created')
+// })
+
+// app.get('/product',(req,res)=>{
+//     res.render('product')
+// })
+
+// app.post('/product',(req,res)=>{
+//     res.send('Product Created')
+// })
