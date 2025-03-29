@@ -41,7 +41,7 @@ export default function VendorSignUp() {
     <div className='w-full'>
       <h1 className='text-7xl text-center'>Vendor registration </h1>
       <div className="flex flex-col items-center">
-        <form onSubmit={handleSubmit} className='flex flex-col w-[60%]'>
+        <form onSubmit={handleSubmit} className='flex flex-col w-full bg-black'>
           <Input
             label='Name of the vendor'
             type='text'

@@ -20,9 +20,6 @@ app.use(express.json())
 app.set('view engine', 'ejs')
 app.set('views',path.join(__dirname,'views'))
 
-app.get('/',(req,res)=>{
-    res.render('index')
-})
 
 app.post('/api/vendor-registration', async (req,res)=>{
     const data = await req.body;
@@ -30,11 +27,12 @@ app.post('/api/vendor-registration', async (req,res)=>{
     res.status(200).json({ message: 'Vendor registration successful' });
 })
 
+app.post('/api/user-registration', async(req,res)=>{
+    const data = await req.body
+    await console.log('Received Data: ',data)
+    res.status(200).json({message: 'User Registration Successful'})
+})
 app.listen(3000, ()=>{console.log('ON PORT 3000')})
-
-// app.post('/buyer',(req,res)=>{
-//     res.send('buyer Created')
-// })
 
 // app.get('/seller',(req,res)=>{
 //     res.render('seller')
