@@ -32,6 +32,14 @@ app.post('/api/user-registration', async(req,res)=>{
     await console.log('Received Data: ',data)
     res.status(200).json({message: 'User Registration Successful'})
 })
+
+app.post('/api/adding-product', async (req,res)=>{
+    const data = await req.body;
+    await console.log('Received data:', data);
+    res.status(200).json({ message: 'Vendor registration successful' });
+})
+
+
 app.listen(3000, ()=>{console.log('ON PORT 3000')})
 
 // app.get('/seller',(req,res)=>{
