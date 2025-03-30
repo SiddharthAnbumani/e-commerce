@@ -63,5 +63,12 @@ app.put('/api/edit-product/:productId', async(req,res)=>{
     res.status(200).json({message: 'Made The changes in the Projects'})
 })
 
+app.delete('/api/delete-product/:productId',async(req,res)=>{
+    const {productId} = req.params
+    const foundProduct = await Product.findByIdAndDelete(productId)
+    console.log('Deleted :', foundProduct)
+    res.status(200).json({message:"Product Deleted."})
+})
+
 
 app.listen(3000, ()=>{console.log('ON PORT 3000')})

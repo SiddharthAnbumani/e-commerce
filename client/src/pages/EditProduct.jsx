@@ -1,4 +1,3 @@
-import { FaHandFist } from "react-icons/fa6";
 import CusButton from "../components/cusButton";
 import Axios from 'axios';
 import { useState, useEffect } from "react";
@@ -15,7 +14,7 @@ export default function EditProduct() {
     InStock: '',
   });
 
-  const productId = '67e8b61149febfa85d9f4caf';
+  const productId = '67e8b61149febfa85d9f4cae';
 
   // Fetch The Previous Product Data
   const fetchProductData = async () => {
@@ -62,6 +61,15 @@ export default function EditProduct() {
     const { name, value } = evt.target;
     setProductData((prev) => ({ ...prev, [name]: value }));
   };
+
+  const handleDelete = async(evt)=>{
+    try{
+        const response = await Axios.delete(`/api/delete-product/${productId}`)
+        console.log('Response :', response.data)
+    } catch(error){
+        console.log('Error :',error)
+    }
+  }
 
   return (
     <div className='w-full flex flex-col justify-center items-center'>
@@ -144,8 +152,13 @@ export default function EditProduct() {
 
           <CusButton
             text='Update Product'
-            btnClass='bg-white w-full'
+            btnClass='bg-yellow-500 w-full text-white'
             type='submit'
+          />
+          <CusButton
+            text='Delete Product'
+            btnClass='bg-red-600 w-full text-white'
+            onClick={handleDelete}
           />
         </form>
       </div>
