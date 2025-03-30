@@ -46,17 +46,6 @@ export default function EditProduct(){
 
 
     return(
-        // <div className="">
-        // {/* <form action={handleSubmit}>
-        //     <CusButton 
-        //     text='Edit Product'
-        //     onClick={handleSubmit}
-        //     btnClass='bg-green-600
-        //     '/>
-        // </form> */}
-        // <h1 className="text-8xl font-extrabold">This is the update form</h1>
-        // </div>
-
         <div className='w-full flex flex-col justify-center items-center'>
         <h1 className='text-7xl'>User- registration </h1>
              <div className="flex flex-col items-center justify-center">
