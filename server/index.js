@@ -49,8 +49,18 @@ app.post('/api/add-product',async (req,res)=>{
 app.get('/api/fetch-edit-product/:productId', async(req,res)=>{
     const {productId} = req.params;
     const foundProduct = await Product.findById(productId)
-    console.log(foundProduct)
+    // console.log(foundProduct)
     res.status(200).json(foundProduct)
+})
+
+app.put('/api/edit-product/:productId', async(req,res)=>{
+    const {productId} = req.params;
+    const newData = req.body;
+    const foundProduct = await Product.findByIdAndUpdate(productId,newData, {
+        new:true
+    });
+    console.log(foundProduct)
+    res.status(200).json({message: 'Made The changes in the Projects'})
 })
 
 
