@@ -11,7 +11,8 @@ const ProductSchema = new Schema({
         required: true
     },
     Category: {
-        enum: ['type1,type2,type3,type4'],
+        type:String,
+        enum: ['type1' ,'type2','type3','type4'],
         required: true
     },
     Image:{
@@ -24,6 +25,14 @@ const ProductSchema = new Schema({
     },
     InStock: {
         type: Boolean,
-        required: true
+        // required: true
     }
 })
+
+ProductSchema.pre('save', function(next){
+    this.InStock = this.Quantity > 0; // Comparison Returns True or false
+    next();
+})
+
+const Product = mongoose.model('Product', ProductSchema)
+module.exports = Product;

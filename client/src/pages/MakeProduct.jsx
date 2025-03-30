@@ -21,7 +21,7 @@ export default function MakeProduct(){
     const handleSubmit = async (evt)=>{
         evt.preventDefault();
         try {
-            const response = await Axios.post('/api/adding-product',productFormData,{
+            const response = await Axios.post('/api/add-product',productFormData,{
                 headers : {'content-type':'application/json'}
             })
 

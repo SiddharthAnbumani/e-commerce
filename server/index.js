@@ -4,6 +4,9 @@ const path = require('path')
 const cors = require('cors')
 
 const mongoose = require('mongoose')
+const Product = require('./models/product');
+const handleAsync = require('./utils/handleAsync')
+
 
 mongoose.connect('mongodb://localhost:27017/e-commerce')
 .then (()=>{
@@ -21,11 +24,13 @@ app.set('view engine', 'ejs')
 app.set('views',path.join(__dirname,'views'))
 
 
+
 app.post('/api/vendor-registration', async (req,res)=>{
     const data = await req.body;
     await console.log('Received data:', data);
     res.status(200).json({ message: 'Vendor registration successful' });
 })
+
 
 app.post('/api/user-registration', async(req,res)=>{
     const data = await req.body
@@ -33,27 +38,20 @@ app.post('/api/user-registration', async(req,res)=>{
     res.status(200).json({message: 'User Registration Successful'})
 })
 
-app.post('/api/adding-product', async (req,res)=>{
-    const data = await req.body;
-    await console.log('Received data:', data);
-    res.status(200).json({ message: 'Vendor registration successful' });
+app.post('/api/add-product',async (req,res)=>{
+    const  productData = req.body
+    const addProduct = new Product(productData)
+    await addProduct.save()
+    console.log('Received data:', productData);
+    res.status(200).json({ message: 'Project registration successful' });
+})
+
+app.get('/api/fetch-edit-product/:productId', async(req,res)=>{
+    const {productId} = req.params;
+    const foundProduct = await Product.findById(productId)
+    console.log(foundProduct)
+    res.status(200).json(foundProduct)
 })
 
 
 app.listen(3000, ()=>{console.log('ON PORT 3000')})
-
-// app.get('/seller',(req,res)=>{
-//     res.render('seller')
-// })
-
-// app.post('/seller',(req,res)=>{
-//     res.send('seller Created')
-// })
-
-// app.get('/product',(req,res)=>{
-//     res.render('product')
-// })
-
-// app.post('/product',(req,res)=>{
-//     res.send('Product Created')
-// })
