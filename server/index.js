@@ -70,5 +70,16 @@ app.delete('/api/delete-product/:productId',async(req,res)=>{
     res.status(200).json({message:"Product Deleted."})
 })
 
+app.get('/api/all-products',async(req,res)=>{
+    const allProducts = await Product.find({})
+    res.status(200).json(allProducts)
+})
+
+app.get('/api/all-products/:id',async(req,res)=>{
+    const {id} = req.params
+    const indData = await Product.findById(id)
+    console.log(indData)
+    res.status(200).json(indData)
+})
 
 app.listen(3000, ()=>{console.log('ON PORT 3000')})

@@ -38,10 +38,10 @@ export default function VendorSignUp() {
   };
 
   return (
-    <div className='w-full'>
-      <h1 className='text-7xl text-center'>Vendor registration </h1>
-      <div className="flex flex-col items-center">
-        <form onSubmit={handleSubmit} className='flex flex-col w-full bg-black'>
+    <div className='w-full flex flex-col items-center justify-center'>
+      <h1 className='text-7xl'>Vendor registration </h1>
+      {/* <div className="flex flex-col items-center justify-center"> */}
+        <form onSubmit={handleSubmit} className='flex flex-col justify-center w-[70%]'>
           <Input
             label='Name of the vendor'
             type='text'
@@ -109,7 +109,7 @@ export default function VendorSignUp() {
           />
         </form>
       </div>
-    </div>
+    // </div>
   )
 }
 

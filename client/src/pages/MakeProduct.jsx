@@ -2,9 +2,11 @@ import { useState } from "react";
 import Input from "../components/Input";
 import CusButton from "../components/cusButton";
 import Axios from "axios";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
+
 
 export default function MakeProduct(){
+
     const [productFormData, setProductFormData] = useState({
         ProductName: '',
         Description:'',
@@ -18,6 +20,8 @@ export default function MakeProduct(){
         setProductFormData((prev)=>({...prev,[name]:value}))
     }
 
+    const navigate = useNavigate()
+
     const handleSubmit = async (evt)=>{
         evt.preventDefault();
         try {
@@ -29,6 +33,9 @@ export default function MakeProduct(){
         }catch(error){
             console.log(error)
         }
+
+        navigate('/allproducts')
+
         setProductFormData({
             ProductName: '',
             Description:'',
@@ -40,7 +47,7 @@ export default function MakeProduct(){
 
     return (
         <div className='w-full flex flex-col justify-center items-center'>
-            <h1 className='text-7xl'>User- registration </h1>
+            <h1 className='text-7xl text-bold'>Add New Products</h1>
                  <div className="flex flex-col items-center justify-center">
                      <form onSubmit={handleSubmit} className=' w-full '>
                         
