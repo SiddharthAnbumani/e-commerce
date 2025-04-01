@@ -11,7 +11,7 @@ export default function CartItem() {
       <div className="w-[95%] h-[80px] bg-blue-600 rounded-xl my-2">
         <div className="flex w-full h-full justify-between items-center">
           <div className="w-2/12 h-[90%] flex justify-center items-center bg-blue-200 rounded-4xl">
-            <img className="w-[60px] h-[60px]" src="image.png" alt="Product" />
+            <img className="w-[60px] h-[60px]" src="/image.png" alt="Product" />
           </div>
 
           <div className="flex items-center justify-center">

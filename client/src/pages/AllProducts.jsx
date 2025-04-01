@@ -22,7 +22,7 @@ export default function AllProducts(){
     },[])
 
     return (
-        <div className="">
+        <div className="my-20">
             {/* <h1 className="text-7xl">
             This is all Products
             </h1> */}

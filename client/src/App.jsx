@@ -11,7 +11,7 @@ import './index.css'
 import MakeProduct from "./pages/MakeProduct"
 import EditProduct from "./pages/EditProduct"
 import IndividualProduct from "./pages/IndividualProduct"
-import Cart from "./pages/Cart"
+import Cart from './components/Cart'
 import SignMain from "./pages/SignMain"
 import RegisterMain from "./pages/RegisterMain"
 import { useState } from "react"
@@ -21,7 +21,8 @@ export default function App(){
 
 
   return (
-    <BrowserRouter>
+    <div className="">
+    <BrowserRouter className=''>
     <Navbar
      isActive={isActive}
      setIsActive={setIsActive}/>
@@ -49,6 +50,7 @@ export default function App(){
         {/* <Route path="/cart" element={<Cart/>} /> */}
       </Routes>
     </BrowserRouter>
-    
+    </div>
   )
 }
+

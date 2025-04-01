@@ -6,9 +6,10 @@ export default function Navbar({isActive,setIsActive}) {
     }
 
   return (
-    <div className="sticky my-2 bg-black/80 text-white backdrop-blur-3xl p-3 rounded-3xl flex justify-between">  
+    // <div className="sticky my-2 bg-black/70 backdrop-blur-3xl text-white p-3 rounded-3xl flex justify-between">  
+<div className="fixed top-1 left-1 right-1 w-full bg-black/70 backdrop-blur-3xl text-lg text-white p-3 rounded-2xl flex justify-between z-50">
 
-      <ul className="font-extrabold w-4/12 flex justify-center">
+      <ul className="font-extrabold w-4/12 flex justify-center items-center">
         <li className="transition-all duration-200 hover:scale-110">
           <NavLink to='/'>
             E-commerce
@@ -16,7 +17,7 @@ export default function Navbar({isActive,setIsActive}) {
         </li>
       </ul>
 
-      <ul className="flex font-extrabold w-8/12 justify-evenly">
+      <ul className="flex font-extrabold w-8/12 justify-evenly items-center">
         <li className="hover:scale-110">
           <NavLink to='/home'>
             Home
@@ -56,9 +57,9 @@ export default function Navbar({isActive,setIsActive}) {
             </li>
           </ul>
         </li>
-        <li className="hover:scale-110">
+        <li className="hover:scale-110 flex items-center justify-center">
           <button className="rounded-4xl" onClick={handleToggle}>
-          <img src="cart2.jpeg" alt="" className="w-[30px] h-[30px] rounded-4xl"/>
+          <img src="/cart2.jpeg" alt="" className="w-[30px] h-[30px] rounded-4xl"/>
           </button>
         </li>
       </ul>

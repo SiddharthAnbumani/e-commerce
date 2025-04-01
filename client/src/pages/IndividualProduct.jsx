@@ -33,20 +33,32 @@ export default function IndividualProduct() {
   if (!individualData) return <p>No product found</p>;
 
   return (
-    <div className="flex flex-col items-center">
-      <div className="h-[400px] w-[400px] bg-white rounded-4xl flex flex-col items-center p-5">
-        <h1 className="text-5xl font-extrabold">{individualData.ProductName}</h1>
-        <p className="text-lg">{individualData.Description}</p>
-        <p>Category: {individualData.Category}</p>
-        <p>Quantity: {individualData.Quantity}</p>
+    <div className="flex justify-center items-center h-screen mt-10">
+    <div className="flex flex-col items-center justify-center my-20">
+
+      <div className="h-[700px] w-[700px] bg-white rounded-4xl flex flex-col items-center  justify-between p-5">
+
+        <div className="flex flex-col justify-center">
+          <h1 className="text-5xl font-extrabold">{individualData.ProductName}</h1>
+          <p className="text-lg font-bold text-center my-3">{individualData.Description}</p>
+          <p className='text-lg font-semibold text-start my-0 mx-2'>Category: {individualData.Category}</p>
+          <p className='text-lg font-semibold text-start my-0 mx-2'>Quantity: {individualData.Quantity}</p>
+        </div>
+
+        <div className="flex bg-black h-[250px] w-[250px] rounded-4xl mt-5">
+          <img src="/landing.avif" alt="" className='h-[250px] w-[300px] rounded-4xl' />
+
+        </div>
       
+      <div className="w-full flex flex-col justify-center items-center space-y-3">
         <CusButton
         text='Buy Now'
         btnClass='bg-green-400 text-white w-[80%]'/>
-
         <CusButton
         text='Add to Cart'
         btnClass='bg-blue-700 text-white w-[80%]'/>
+      </div>
+
       </div>
 
       <NavLink 
@@ -55,7 +67,10 @@ export default function IndividualProduct() {
         Back to Products
       </NavLink>
     </div>
+    </div>
   );
 }
+
+
 
 
