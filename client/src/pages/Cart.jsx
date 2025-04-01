@@ -1,14 +1,22 @@
 import CartItem from "../components/CartItem";
 
+import { useState } from "react";
 
-export default function Cart(){
+
+export default function Cart({isActive,setIsActive}){
+
+        const handleToggle = ()=> {
+        setIsActive(!isActive)
+    }
+
     return (
-        <div className="flex ">
-            <div className="h-screen  w-8/12">
-            {/* empty Container */}
+         isActive ? <div className="flex flex-row-reverse">
+            <div className="w-4/12 bg-white rounded-4xl mr-3">
+            <div className="flex justify-evenly"> 
+            <h1 className="w-2/3 text-5xl font-extrabold text-center my-3">Cart</h1>
+            <button onClick={handleToggle} className="w-1/3 text-xl font-extrabold hover:scale-125 transition-all duration-200">X </button>
             </div>
-            <div className="h-full w-4/12 bg-white rounded-4xl mr-3">
-            <h1 className="text-5xl font-extrabold text-center my-3">Cart</h1>
+
             <div className="flex flex-col">
             <CartItem/>
             <CartItem/>
@@ -23,6 +31,8 @@ export default function Cart(){
             <CartItem/>
             </div>
             </div>
-        </div>
+        </div> : null
+        
     )
 }
+

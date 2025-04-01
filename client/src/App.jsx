@@ -12,11 +12,22 @@ import MakeProduct from "./pages/MakeProduct"
 import EditProduct from "./pages/EditProduct"
 import IndividualProduct from "./pages/IndividualProduct"
 import Cart from "./pages/Cart"
+import SignMain from "./pages/SignMain"
+import RegisterMain from "./pages/RegisterMain"
+import { useState } from "react"
 
 export default function App(){
+  const [isActive,setIsActive] = useState(true);
+
+
   return (
     <BrowserRouter>
-    <Navbar/>
+    <Navbar
+     isActive={isActive}
+     setIsActive={setIsActive}/>
+    <Cart 
+    isActive={isActive}
+    setIsActive={setIsActive}/>
       <Routes>
         <Route path="/" element={<Landing/>} />
         <Route path="/home" element={<Home/>} />
@@ -25,11 +36,17 @@ export default function App(){
         <Route path="/allproducts" element={<AllProducts/>} />
         <Route path="/allproducts/:productId" element={<IndividualProduct/>} />
         <Route path="/allproducts" element={<AllProducts/>} />
+
         <Route path="/vendor-sign" element={<VendorSignUp/>} />
         <Route path="/vendor-login" element={<VendorLogin/>} />
+
         <Route path="/buyer-sign" element={<BuyerSignUp/>} />
         <Route path="/buyer-login" element={<BuyerLogin/>} />
-        <Route path="/cart" element={<Cart/>} />
+
+        <Route path="/login-main" element={<SignMain/>} />
+        <Route path="/sign-main" element={<RegisterMain/>} />
+        
+        {/* <Route path="/cart" element={<Cart/>} /> */}
       </Routes>
     </BrowserRouter>
     

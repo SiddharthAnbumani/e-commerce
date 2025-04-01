@@ -1,6 +1,10 @@
 import { NavLink } from "react-router-dom";
 
-export default function Navbar() {
+export default function Navbar({isActive,setIsActive}) {
+    const handleToggle = ()=> {
+    setIsActive(!isActive)
+    }
+
   return (
     <div className="sticky my-2 bg-black/80 text-white backdrop-blur-3xl p-3 rounded-3xl flex justify-between">  
 
@@ -26,7 +30,7 @@ export default function Navbar() {
         </li>
 
         <li className="relative group hover:scale-110">
-          <NavLink to='#'>
+          <NavLink to='/sign-main'>
             Login
           </NavLink>
           <ul className="absolute left-0 mt-2 w-40 bg-white text-black rounded-lg shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -40,7 +44,7 @@ export default function Navbar() {
         </li>
 
         <li className="relative group hover:scale-110">
-          <NavLink to='#'>
+          <NavLink to='/login-main'>
             Register
           </NavLink>
           <ul className="absolute left-0 mt-2 w-40 bg-white text-black rounded-lg shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -53,9 +57,9 @@ export default function Navbar() {
           </ul>
         </li>
         <li className="hover:scale-110">
-          <NavLink to='/cart'>
-          Cart
-          </NavLink>
+          <button className="rounded-4xl" onClick={handleToggle}>
+          <img src="cart2.jpeg" alt="" className="w-[30px] h-[30px] rounded-4xl"/>
+          </button>
         </li>
       </ul>
     </div>
