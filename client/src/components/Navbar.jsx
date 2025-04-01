@@ -52,6 +52,11 @@ export default function Navbar() {
             </li>
           </ul>
         </li>
+        <li className="hover:scale-110">
+          <NavLink to='/cart'>
+          Cart
+          </NavLink>
+        </li>
       </ul>
     </div>
   )

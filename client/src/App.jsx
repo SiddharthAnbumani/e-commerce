@@ -11,6 +11,7 @@ import './index.css'
 import MakeProduct from "./pages/MakeProduct"
 import EditProduct from "./pages/EditProduct"
 import IndividualProduct from "./pages/IndividualProduct"
+import Cart from "./pages/Cart"
 
 export default function App(){
   return (
@@ -28,6 +29,7 @@ export default function App(){
         <Route path="/vendor-login" element={<VendorLogin/>} />
         <Route path="/buyer-sign" element={<BuyerSignUp/>} />
         <Route path="/buyer-login" element={<BuyerLogin/>} />
+        <Route path="/cart" element={<Cart/>} />
       </Routes>
     </BrowserRouter>
     
