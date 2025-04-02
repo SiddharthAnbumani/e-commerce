@@ -22,16 +22,6 @@ const BuyerSchema = new Schema ({
            type:String,
            required:true
 	    },
-    // addresses: [
-    //     {
-    //         city : String,
-    //         state : String,
-    //         country : {
-    //             type: String,
-    //             required: true
-    //             }
-	//     }
-    // 
     orders: {
         count:Number,
         productsBought: {
@@ -46,3 +36,4 @@ const BuyerSchema = new Schema ({
 })
 
 const Buyer = new mongoose.model('Buyer', BuyerSchema)
+
